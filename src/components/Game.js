@@ -14,6 +14,7 @@ class Game extends React.Component {
             }],
             xIsNext: true,
             stepNumber: 0,
+            isAscendingHistory: true
         };
     }
 
@@ -43,6 +44,14 @@ class Game extends React.Component {
             xIsNext: (step % 2) === 0,
         });
     }
+
+    
+    toggleOrder() {
+        this.setState(prevState => ({ 
+            isAscendingHistory: !prevState.isAscendingHistory
+        }));
+    }
+    
 
     render() {
         const history = this.state.history;
@@ -81,7 +90,10 @@ class Game extends React.Component {
                     <div>{status}</div>
                     <div>
                         <h3>History</h3>
-                        <SwitchOrderButton />
+                        <SwitchOrderButton 
+                            isAscending={this.state.isAscendingHistory} 
+                            toggleOrder={() => this.toggleOrder()} 
+                        />
                     </div>
                     <ol className="history">{moves}</ol>
                 </div>
