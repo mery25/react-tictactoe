@@ -9,7 +9,7 @@ class Game extends React.Component {
         super()
         this.state = {
             history: [{
-                squares: Array(9).fill(null),
+                squares: Array.from({length: 9}, e => Object.assign({ value: null, isHighlighted: false})),
                 squarePosition: -1
             }],
             xIsNext: true,
@@ -23,11 +23,11 @@ class Game extends React.Component {
         const current = history[history.length - 1];
         const squares = current.squares.slice();
 
-        if (calculateWinner(squares) || squares[i]) {
+        if (calculateWinner(squares) || squares[i].value) {
             return;
         }
 
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        squares[i].value = this.state.xIsNext ? 'X' : 'O';
         this.setState({
             history: history.concat([{
                 squares: squares,
@@ -71,30 +71,39 @@ class Game extends React.Component {
     createStatus(winner) {
         let status;
         if (winner) {
-            status = 'Winner: ' + winner;
+            status = 'Winner: ' + winner.value;
         } else {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
         return status;
     }
 
+    highlightWinnerSquares(squares, winnerPositions) {
+        return squares;
+    }
+
     render() {
+
         const history = this.state.history;
         const current = history[this.state.stepNumber]
         const winner = calculateWinner(current.squares)
-        let status = createStatus(winner);
+        let status = this.createStatus(winner);
 
-        const moves = renderMoves(history);
+        const moves = this.renderMoves(history);
 
         const sortedMoves = this.state.isAscendingHistory 
             ? moves 
             : moves.reverse();
 
+        const squares = winner 
+            ? this.highlightWinnerSquares(current.squares, winner.positions) 
+            : current.squares;
+
         return (
             <div className="game">
                 <div className="game-board">
                     <Board
-                        squares={current.squares}
+                        squares={squares}
                         onClick={(i) => this.handleClick(i)}
                     />
                 </div>

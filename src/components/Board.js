@@ -7,9 +7,11 @@ const NUM_COLS = 3;
 class Board extends React.Component {
 
     renderSquare(i) {
+        const { value, isHighlighted} = this.props.squares[i];
         return <Square
             key={i}
-            value={this.props.squares[i]}
+            value={value}
+            isHighlighted={isHighlighted}
             onClick={() => this.props.onClick(i)}
         />;
     }
