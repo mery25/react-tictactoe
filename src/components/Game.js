@@ -52,33 +52,43 @@ class Game extends React.Component {
         }));
     }
     
+    renderMoves(history) {
+        return history.map((step, move) => {
+            const { squarePosition } = step;
+            const row = Math.floor(squarePosition / 3);
+            const col = squarePosition % 3;
+            const desc = move ?
+                `Go to move #${move}: row ${row}, column ${col}` :
+                'Go to game start';
+            return (
+                <li className="history-move" key={move}>
+                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                </li>
+            );
+        });
+    }
 
-    render() {
-        const history = this.state.history;
-        const current = history[this.state.stepNumber]
-        const winner = calculateWinner(current.squares)
+    createStatus(winner) {
         let status;
         if (winner) {
             status = 'Winner: ' + winner;
         } else {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
+        return status;
+    }
 
-        const moves = history.map((step, move) => {
-            const { squarePosition } = step;
-            const row = Math.floor(squarePosition/3);
-            const col = squarePosition%3;
-            const desc = move ?
-                `Go to move #${move}: row ${row}, column ${col}`:
-                'Go to game start';
-            return (
-                <li className="history-move" key={move}>
-                    <button  onClick={() => this.jumpTo(move)}>{desc}</button>
-                </li>
-            );
-        });
+    render() {
+        const history = this.state.history;
+        const current = history[this.state.stepNumber]
+        const winner = calculateWinner(current.squares)
+        let status = createStatus(winner);
 
-        const sortedMoves = this.state.isAscendingHistory ? moves : moves.reverse()
+        const moves = renderMoves(history);
+
+        const sortedMoves = this.state.isAscendingHistory 
+            ? moves 
+            : moves.reverse();
 
         return (
             <div className="game">
