@@ -4,7 +4,8 @@ function Square(props) {
 
     return (
         <button 
-            className="square" 
+            style={props.isHighlighted ? { border: "2px solid yellow"} : null}
+            className="square"
             onClick={props.onClick} 
         >
             { props.value }
