@@ -56,10 +56,10 @@ class Game extends React.Component {
 
         const moves = history.map((step, move) => {
             const { squarePosition } = step;
-            const x = Math.floor(squarePosition/3);
-            const y = squarePosition%3;
+            const row = Math.floor(squarePosition/3);
+            const col = squarePosition%3;
             const desc = move ?
-                `Go to move #${move}: row ${x}, column ${y}`:
+                `Go to move #${move}: row ${row}, column ${col}`:
                 'Go to game start';
             return (
                 <li className="history-move" key={move}>
