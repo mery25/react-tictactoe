@@ -2,6 +2,7 @@ import '../css/Game.css';
 import React from "react";
 import Board from "./Board";
 import { calculateWinner } from "../calculateWinner"
+import SwitchOrderButton from "./SwitchOrderButton"
 
 class Game extends React.Component {
     constructor() {
@@ -78,6 +79,10 @@ class Game extends React.Component {
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
+                    <div>
+                        <h3>History</h3>
+                        <SwitchOrderButton />
+                    </div>
                     <ol className="history">{moves}</ol>
                 </div>
             </div>
