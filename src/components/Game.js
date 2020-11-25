@@ -78,6 +78,8 @@ class Game extends React.Component {
             );
         });
 
+        const sortedMoves = this.state.isAscendingHistory ? moves : moves.reverse()
+
         return (
             <div className="game">
                 <div className="game-board">
@@ -95,7 +97,7 @@ class Game extends React.Component {
                             toggleOrder={() => this.toggleOrder()} 
                         />
                     </div>
-                    <ol className="history">{moves}</ol>
+                    <ol className="history">{sortedMoves}</ol>
                 </div>
             </div>
         );
