@@ -79,7 +79,18 @@ class Game extends React.Component {
     }
 
     highlightWinnerSquares(squares, winnerPositions) {
-        return squares;
+        let position = 0;
+        return squares.map((square, i) => {
+            if(position < 3 && i == winnerPositions[position]) {
+                ++position;
+                return {
+                    ... square,
+                    isHighlighted: true
+                }
+            }
+            return square;
+        })
+
     }
 
     render() {
