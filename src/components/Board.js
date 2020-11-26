@@ -1,19 +1,21 @@
 import React from "react"
 import Square from "./Square"
 
-const NUM_ROWS = 3;
-const NUM_COLS = 3;
-
 function Board(props) {
+
+    const NUM_ROWS = 3;
+    const NUM_COLS = 3;
 
     function renderSquare(i) {
         const { value, isHighlighted} = props.squares[i];
-        return <Square
-            key={i}
-            value={value}
-            isHighlighted={isHighlighted}
-            onClick={() => props.onClick(i)}
-        />;
+        return (
+            <Square
+                key={i}
+                value={value}
+                isHighlighted={isHighlighted}
+                onClick={() => props.onClick(i)}
+            />
+        );
     }
     
     function renderRow(fromPosition, toPosition) {
