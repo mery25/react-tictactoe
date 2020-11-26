@@ -1,62 +1,55 @@
 import '../css/Game.css';
-import React from "react";
+import React, {useState} from "react";
 import Board from "./Board";
 import { calculateWinner } from "../calculateWinner"
 import SwitchOrderButton from "./SwitchOrderButton"
 
-const BOARD_SIZE = 9;
+function Game() {
 
-class Game extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            history: [{
-                squares: Array.from({
-                    length: BOARD_SIZE}, 
-                    e => Object.assign({ value: null, isHighlighted: false})),
-                squarePosition: -1
-            }],
-            xIsNext: true,
-            stepNumber: 0,
-            isAscendingHistory: true
-        };
-    }
+    const BOARD_SIZE = 9;
+    
+    const [ history, setHistory ] = useState([{
+        squares: Array.from({
+            length: BOARD_SIZE}, 
+            e => Object.assign({ value: null, isHighlighted: false})),
+        squarePosition: -1
+    }]);
+    const [ xIsNext, setXIsNext ] = useState(true);
+    const [ stepNumber, setStepNumber ] = useState(0);
+    const [ isAscendingHistory, setIsAscendingHistory ] = useState(true);
 
-    handleClick(i) {
-        const history = this.state.history.slice(0, this.state.stepNumber + 1);
-        const current = history[history.length - 1];
-        const squares = current.squares.slice();
+    function handleClick(i) {
+        const oldHistory = history.slice(0, stepNumber + 1);
+        const current = oldHistory[oldHistory.length - 1];
+        const squares = [...current.squares];
 
         if (calculateWinner(squares) || squares[i].value) {
             return;
         }
 
-        squares[i].value = this.state.xIsNext ? 'X' : 'O';
-        this.setState({
-            history: history.concat([{
-                squares: squares,
-                squarePosition: i
-            }]),
-            stepNumber: history.length,
-            xIsNext: !this.state.xIsNext,
-        });
+        squares[i] = {
+            ...squares[i],
+            value: xIsNext ? 'X' : 'O'
+        }
+        setHistory(prevHistory => prevHistory.concat([{
+            squares: squares,
+            squarePosition: i
+        }]));
+        setStepNumber(oldHistory.length);
+        setXIsNext(prevXIsNext => !prevXIsNext);
     }
 
-    jumpTo(step) {
-        this.setState({
-            stepNumber: step,
-            xIsNext: (step % 2) === 0,
-        });
+    function jumpTo(step) {
+        setStepNumber(step);
+        setXIsNext((step % 2) === 0);
     }
 
     
-    toggleOrder() {
-        this.setState(prevState => ({ 
-            isAscendingHistory: !prevState.isAscendingHistory
-        }));
+    function toggleOrder() {
+        setIsAscendingHistory(prevIsAscendingHistory => !prevIsAscendingHistory)
     }
     
-    renderMoves(history) {
+    function renderMoves(history) {
         return history.map((step, move) => {
             const { squarePosition } = step;
             const row = Math.floor(squarePosition / 3);
@@ -66,25 +59,25 @@ class Game extends React.Component {
                 'Go to game start';
             return (
                 <li className="history-move" key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button onClick={() => jumpTo(move)}>{desc}</button>
                 </li>
             );
         });
     }
 
-    createStatus(winner) {
+    function createStatus(winner) {
         let status;
         if (winner) {
             status = 'Winner: ' + winner.value;
-        } else if (this.state.stepNumber === BOARD_SIZE) {
+        } else if (stepNumber === BOARD_SIZE) {
             status = "This is a tie!"
         } else {
-            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+            status = 'Next player: ' + (xIsNext ? 'X' : 'O');
         }
         return status;
     }
 
-    highlightWinnerSquares(squares, winnerPositions) {
+    function highlightWinnerSquares(squares, winnerPositions) {
         let position = 0;
         return squares.map((square, i) => {
             if(position < winnerPositions.length 
@@ -100,45 +93,41 @@ class Game extends React.Component {
 
     }
 
-    render() {
+    const current = history[stepNumber];
+    const winner = calculateWinner(current.squares);
+    let status = createStatus(winner);
 
-        const history = this.state.history;
-        const current = history[this.state.stepNumber]
-        const winner = calculateWinner(current.squares)
-        let status = this.createStatus(winner);
+    const moves = renderMoves(history);
 
-        const moves = this.renderMoves(history);
+    const sortedMoves = isAscendingHistory 
+        ? moves 
+        : moves.reverse();
 
-        const sortedMoves = this.state.isAscendingHistory 
-            ? moves 
-            : moves.reverse();
+    const squares = winner 
+        ? highlightWinnerSquares(current.squares, winner.positions) 
+        : current.squares;
 
-        const squares = winner 
-            ? this.highlightWinnerSquares(current.squares, winner.positions) 
-            : current.squares;
-
-        return (
-            <div className="game">
-                <div className="game-board">
-                    <Board
-                        squares={squares}
-                        onClick={(i) => this.handleClick(i)}
+    return (
+        <div className="game">
+            <div className="game-board">
+                <Board
+                    squares={squares}
+                    onClick={(i) => handleClick(i)}
+                />
+            </div>
+            <div className="game-info">
+                <div>{status}</div>
+                <div>
+                    <h3>History</h3>
+                    <SwitchOrderButton 
+                        isAscending={isAscendingHistory} 
+                        toggleOrder={() => toggleOrder()} 
                     />
                 </div>
-                <div className="game-info">
-                    <div>{status}</div>
-                    <div>
-                        <h3>History</h3>
-                        <SwitchOrderButton 
-                            isAscending={this.state.isAscendingHistory} 
-                            toggleOrder={() => this.toggleOrder()} 
-                        />
-                    </div>
-                    <ol className="history">{sortedMoves}</ol>
-                </div>
+                <ol className="history">{sortedMoves}</ol>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Game;
