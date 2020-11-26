@@ -4,30 +4,30 @@ import Square from "./Square"
 const NUM_ROWS = 3;
 const NUM_COLS = 3;
 
-class Board extends React.Component {
+function Board(props) {
 
-    renderSquare(i) {
-        const { value, isHighlighted} = this.props.squares[i];
+    function renderSquare(i) {
+        const { value, isHighlighted} = props.squares[i];
         return <Square
             key={i}
             value={value}
             isHighlighted={isHighlighted}
-            onClick={() => this.props.onClick(i)}
+            onClick={() => props.onClick(i)}
         />;
     }
     
-    renderRow(fromPosition, toPosition) {
+    function renderRow(fromPosition, toPosition) {
         let boardSquares = [];
         for (let j = fromPosition; j < toPosition; ++j) {
-            boardSquares.push(this.renderSquare(j));
+            boardSquares.push(renderSquare(j));
         }
         return boardSquares;
     }
 
-    renderRows() {
+    function renderRows() {
         let boardRows = [];
         for (let i = 0; i < NUM_ROWS * NUM_COLS; i += NUM_ROWS) {
-            let boardRow = this.renderRow(i, i + NUM_COLS);
+            let boardRow = renderRow(i, i + NUM_COLS);
             boardRows.push(
                 (<div className="board-row">
                     {boardRow}
@@ -37,15 +37,12 @@ class Board extends React.Component {
         return boardRows;
     }
 
-    render() {
-       let boardRows = this.renderRows();
+    return (
+        <div>
+            {renderRows()}
+        </div>
+    );
 
-        return (
-            <div>
-                {boardRows}
-            </div>
-        );
-    }
 }
 
 export default Board;
