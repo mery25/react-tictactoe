@@ -1,0 +1,6 @@
+.selected { 
+    color: black ;
+}
+.unselected {
+    color: gray;
+}
