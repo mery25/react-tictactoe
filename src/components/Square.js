@@ -1,11 +1,11 @@
 import React from "react"
+import '../css/Square.css';
 
 function Square(props) {
 
     return (
         <button 
-            style={props.isHighlighted ? { border: "2px solid yellow"} : null}
-            className="square"
+            className={props.isHighlighted ? "square highlighted": "square"}
             onClick={props.onClick} 
         >
             { props.value }
