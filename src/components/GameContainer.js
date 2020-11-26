@@ -94,8 +94,7 @@ function GameContainer() {
 
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
-    let status = createStatus(winner);
-
+    const status = createStatus(winner);
     const moves = renderMoves(history);
 
     const sortedMoves = isAscendingHistory 
