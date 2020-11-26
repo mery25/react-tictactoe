@@ -4,12 +4,16 @@ import Board from "./Board";
 import { calculateWinner } from "../calculateWinner"
 import SwitchOrderButton from "./SwitchOrderButton"
 
+const BOARD_SIZE = 9;
+
 class Game extends React.Component {
     constructor() {
         super()
         this.state = {
             history: [{
-                squares: Array.from({length: 9}, e => Object.assign({ value: null, isHighlighted: false})),
+                squares: Array.from({
+                    length: BOARD_SIZE}, 
+                    e => Object.assign({ value: null, isHighlighted: false})),
                 squarePosition: -1
             }],
             xIsNext: true,
@@ -72,6 +76,8 @@ class Game extends React.Component {
         let status;
         if (winner) {
             status = 'Winner: ' + winner.value;
+        } else if (this.state.stepNumber === BOARD_SIZE) {
+            status = "This is a tie!"
         } else {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
@@ -81,7 +87,8 @@ class Game extends React.Component {
     highlightWinnerSquares(squares, winnerPositions) {
         let position = 0;
         return squares.map((square, i) => {
-            if(position < 3 && i == winnerPositions[position]) {
+            if(position < winnerPositions.length 
+                && i == winnerPositions[position]) {
                 ++position;
                 return {
                     ... square,
