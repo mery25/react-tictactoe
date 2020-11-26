@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Game from './components/Game';
+import GameContainer from './components/GameContainer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Game />
+    <GameContainer />
   </React.StrictMode>,
   document.getElementById('root')
 );

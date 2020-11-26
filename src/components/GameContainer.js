@@ -1,10 +1,9 @@
 import '../css/Game.css';
 import React, {useState} from "react";
-import Board from "./Board";
 import { calculateWinner } from "../calculateWinner"
-import SwitchOrderButton from "./SwitchOrderButton"
+import GameComponent from "./GameComponent"
 
-function Game() {
+function GameContainer() {
 
     const BOARD_SIZE = 9;
     
@@ -108,26 +107,15 @@ function Game() {
         : current.squares;
 
     return (
-        <div className="game">
-            <div className="game-board">
-                <Board
-                    squares={squares}
-                    onClick={(i) => handleClick(i)}
-                />
-            </div>
-            <div className="game-info">
-                <div>{status}</div>
-                <div>
-                    <h3>History</h3>
-                    <SwitchOrderButton 
-                        isAscending={isAscendingHistory} 
-                        toggleOrder={() => toggleOrder()} 
-                    />
-                </div>
-                <ol className="history">{sortedMoves}</ol>
-            </div>
-        </div>
+        <GameComponent 
+            squares={squares}
+            status={status}
+            isAscendingHistory={isAscendingHistory}
+            sortedMoves={sortedMoves}
+            toggleOrder={toggleOrder}
+            onClick={handleClick}
+        />
     );
 }
 
-export default Game;
+export default GameContainer;
