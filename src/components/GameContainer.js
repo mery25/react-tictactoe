@@ -7,12 +7,15 @@ function GameContainer() {
 
     const BOARD_SIZE = 9;
     
-    const [ history, setHistory ] = useState([{
-        squares: Array.from({
-            length: BOARD_SIZE}, 
-            e => Object.assign({ value: null, isHighlighted: false})),
-        squarePosition: -1
-    }]);
+    const [ history, setHistory ] = useState(
+        [{
+            squares: Array.from(
+                { length: BOARD_SIZE }, 
+                () => Object.assign({ value: null, isHighlighted: false})
+            ),
+            squarePosition: -1
+        }]
+    );
     const [ xIsNext, setXIsNext ] = useState(true);
     const [ stepNumber, setStepNumber ] = useState(0);
     const [ isAscendingHistory, setIsAscendingHistory ] = useState(true);

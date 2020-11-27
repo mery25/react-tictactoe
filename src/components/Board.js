@@ -29,7 +29,7 @@ function Board(props) {
     function renderRows() {
         let boardRows = [];
         for (let i = 0; i < NUM_ROWS * NUM_COLS; i += NUM_ROWS) {
-            let boardRow = renderRow(i, i + NUM_COLS);
+            const boardRow = renderRow(i, i + NUM_COLS);
             boardRows.push(
                 (<div className="board-row">
                     {boardRow}
