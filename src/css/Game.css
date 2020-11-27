@@ -2,15 +2,19 @@ body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
 }
-  
+
 ol, ul {
   padding-left: 30px;
 }
-  
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
+
+.game-board {
+  width: 40vw;
+  height: 40vw;
+}
+
+.game-board div {
+  width: 100%;
+  height: 100%;
 }
 
 .status {
