@@ -45,7 +45,7 @@ function GameContainer() {
     }
 
     function jumpTo(step) {
-        setIsEditableBoard(step == history.length - 1);
+        setIsEditableBoard(step === history.length - 1);
         
         setStepNumber(step);
         setXIsNext((step % 2) === 0);
@@ -130,7 +130,7 @@ function GameContainer() {
             onClick={handleClick}
             isEditableBoard={isEditableBoard}
             toggleSidebar={handleToggleSideBar}
-            historyInfo={{sortedMoves, isAscendingHistory, isHistoryBarOpen}}
+            historyInfo={{sortedMoves, isAscendingHistory, isHistoryBarOpen, stepNumber}}
             jumpTo={jumpTo}
         />
     );
