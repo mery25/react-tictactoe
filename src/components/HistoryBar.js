@@ -26,7 +26,6 @@ function HistoryBar(props) {
                 />
                 <input
                     id="collapsible"
-                    className="toggle"
                     name="isChecked"
                     type="checkbox"
                     checked={props.isOpen}
