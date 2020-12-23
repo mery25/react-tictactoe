@@ -19,6 +19,7 @@ function GameContainer() {
     const [ xIsNext, setXIsNext ] = useState(true);
     const [ stepNumber, setStepNumber ] = useState(0);
     const [ isAscendingHistory, setIsAscendingHistory ] = useState(true);
+    const [ historyBarOpen, setHistoryBarOpen] = useState(true);
 
     function handleClick(i) {
         const oldHistory = history.slice(0, stepNumber + 1);
@@ -74,9 +75,16 @@ function GameContainer() {
         } else if (stepNumber === BOARD_SIZE) {
             status = "This is a tie!"
         } else {
-            status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+            status = 'Next player: ' + <span>(xIsNext ? 'X' : 'O')</span>;
         }
         return status;
+    }
+
+    function getNextPlayer(winner) {
+        if (winner || stepNumber === BOARD_SIZE) {
+            return null;
+        }
+        return xIsNext ? 'X' : 'O';
     }
 
     function highlightWinnerSquares(squares, winnerPositions) {
@@ -95,6 +103,10 @@ function GameContainer() {
 
     }
 
+    function handleToggleSideBar(evt) {
+        setHistoryBarOpen(prevHistoryBarOpen => !prevHistoryBarOpen)
+    }
+
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
     const status = createStatus(winner);
@@ -111,11 +123,14 @@ function GameContainer() {
     return (
         <GameComponent 
             squares={squares}
+            nextPlayer={getNextPlayer(winner)}
             status={status}
             isAscendingHistory={isAscendingHistory}
             sortedMoves={sortedMoves}
             toggleOrder={toggleOrder}
             onClick={handleClick}
+            toggleSidebar={handleToggleSideBar}
+            historyBarOpen={historyBarOpen}
         />
     );
 }

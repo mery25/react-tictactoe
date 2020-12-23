@@ -2,29 +2,33 @@ import '../css/Game.css';
 import React from "react";
 import Board from "./Board";
 import SwitchOrderButton from "./SwitchOrderButton"
+import HistoryBar from './HistoryBar';
 
 function GameComponent(props) {
 
     return (
-        <div className="game">
-            <div className="game-board">
-                <Board
-                    squares={props.squares}
-                    onClick={props.onClick}
-                />
+         <div className="game">
+            <div className="game-status">
+            { props.nextPlayer && 
+                <h2>Next player is  <span>{props.nextPlayer}</span></h2>
+            }
             </div>
-            <div className="game-info">
-                <div>{props.status}</div>
-                <div>
-                    <h3>History</h3>
-                    <SwitchOrderButton 
-                        isAscending={props.isAscendingHistory} 
-                        toggleOrder={props.toggleOrder} 
+            <div className="game-panel">
+                <div className="game-board">
+                    <Board
+                        squares={props.squares}
+                        onClick={props.onClick}
                     />
                 </div>
-                <ol className="history">{props.sortedMoves}</ol>
+                <HistoryBar 
+                    isOpen={props.historyBarOpen} 
+                    toggleSidebar={props.toggleSidebar}
+                    isAscending={props.isAscendingHistory} 
+                    toggleOrder={props.toggleOrder}
+                    sortedMoves={props.sortedMoves}
+                />
             </div>
-        </div>
+        </div> 
     );
 }
 
