@@ -19,7 +19,7 @@ function GameContainer() {
     const [ xIsNext, setXIsNext ] = useState(true);
     const [ stepNumber, setStepNumber ] = useState(0);
     const [ isAscendingHistory, setIsAscendingHistory ] = useState(true);
-    const [ historyBarOpen, setHistoryBarOpen] = useState(true);
+    const [ isHistoryBarOpen, setIsHistoryBarOpen] = useState(true);
 
     function handleClick(i) {
         const oldHistory = history.slice(0, stepNumber + 1);
@@ -52,19 +52,16 @@ function GameContainer() {
         setIsAscendingHistory(prevIsAscendingHistory => !prevIsAscendingHistory)
     }
     
-    function renderMoves(history) {
-        return history.map((step, move) => {
-            const { squarePosition } = step;
-            const row = Math.floor(squarePosition / 3);
-            const col = squarePosition % 3;
-            const desc = move ?
-                `Go to move #${move}: row ${row}, column ${col}` :
-                'Go to game start';
-            return (
-                <li className="history-move" key={move}>
-                    <button onClick={() => jumpTo(move)}>{desc}</button>
-                </li>
-            );
+    function extractMovesFrom(history) {
+        return history.map((step, numMove) => {
+            let row = -1;
+            let col = -1;
+            if (numMove) {
+                const { squarePosition } = step;
+                row = Math.floor(squarePosition / 3);
+                col = squarePosition % 3;
+            }
+            return { num: numMove, row: row, col: col};
         });
     }
 
@@ -104,13 +101,13 @@ function GameContainer() {
     }
 
     function handleToggleSideBar(evt) {
-        setHistoryBarOpen(prevHistoryBarOpen => !prevHistoryBarOpen)
+        setIsHistoryBarOpen(prevIsHistoryBarOpen => !prevIsHistoryBarOpen)
     }
 
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
     const status = createStatus(winner);
-    const moves = renderMoves(history);
+    const moves = extractMovesFrom(history);
 
     const sortedMoves = isAscendingHistory 
         ? moves 
@@ -125,12 +122,11 @@ function GameContainer() {
             squares={squares}
             nextPlayer={getNextPlayer(winner)}
             status={status}
-            isAscendingHistory={isAscendingHistory}
-            sortedMoves={sortedMoves}
             toggleOrder={toggleOrder}
             onClick={handleClick}
             toggleSidebar={handleToggleSideBar}
-            historyBarOpen={historyBarOpen}
+            historyInfo={{sortedMoves, isAscendingHistory, isHistoryBarOpen}}
+            jumpTo={jumpTo}
         />
     );
 }

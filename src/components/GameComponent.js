@@ -21,11 +21,10 @@ function GameComponent(props) {
                     />
                 </div>
                 <HistoryBar 
-                    isOpen={props.historyBarOpen} 
                     toggleSidebar={props.toggleSidebar}
-                    isAscending={props.isAscendingHistory} 
                     toggleOrder={props.toggleOrder}
-                    sortedMoves={props.sortedMoves}
+                    historyInfo={props.historyInfo}
+                    jumpTo={props.jumpTo}
                 />
             </div>
         </div> 
