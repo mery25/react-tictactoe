@@ -1,4 +1,4 @@
-import './Game.css';
+import './Game.scss';
 import React from "react";
 import Board from "../board/Board";
 import HistoryBar from '../history_bar/HistoryBar';

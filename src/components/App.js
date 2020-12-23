@@ -2,7 +2,7 @@ import React from "react"
 import GameContainer from "./game/GameContainer"
 import Header from "./header/Header"
 import Footer from "./footer/Footer"
-import "./App.css"
+import "./App.scss"
 
 function App() {
 

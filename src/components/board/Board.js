@@ -1,6 +1,6 @@
 import React from "react"
 import Square from "./square/Square"
-import './Board.css';
+import './Board.scss';
 
 function Board(props) {
 

@@ -1,5 +1,5 @@
 import React from "react"
-import './HistoryBar.css';
+import './HistoryBar.scss';
 import SwitchOrderButton from "./switch_order_button/SwitchOrderButton"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleUp, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
