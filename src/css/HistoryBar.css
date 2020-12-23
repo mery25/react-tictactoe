@@ -65,7 +65,7 @@
 }
 
 .history {
-    margin: 4em auto;
+    margin: 2em auto;
     position: relative;
     max-width: 46em;
     list-style: none;
@@ -73,7 +73,7 @@
 }
 
 .history:before {
-    background-color: black;
+    background-color: #999;
     content: '';
     margin-left: -1rem;
     position: absolute;
@@ -81,6 +81,11 @@
     left: 2em;
     width: 2px;
     height: 100%;
+}
+
+.history-move {
+    position: relative;
+    margin: 0;
 }
 
 .history-move button {
@@ -92,12 +97,51 @@
     cursor: pointer;
 } 
 
-.history-move button:hover {
+.history-move button:before {
+    background-color: #999;
+    content: '';
+    position: absolute;
+    top: .75em;
+    left: -1.2em;
+    width: .75rem;
+    height: .75em;
+    border-radius: 50%;
+}
+
+.history-move button:focus:before, 
+.history-move button:hover:before {
+    background-color: #000;
+}
+
+.history-move button:hover,
+.history-move button:focus {
+    background-color: #000;
+    color: white;
     font: 16px;
+    outline: none;
+    cursor: pointer;
+}
+
+.history-move button:hover label,
+.history-move button:focus label {
+    cursor: pointer;
 }
 
 .history-move button:active, .history-move button:focus {
     font-weight: bold
+}
+
+.history-move label {
+    font-weight: normal;
+    padding: 0 .3rem;
+    line-height: 1.5rem;
+}
+
+.history-move .secondary {
+    font-style: italic;
+    font-weight: lighter;
+    padding-left: 1rem;
+    font-size: 13px
 }
 
 @media screen and (min-width: 600px) {

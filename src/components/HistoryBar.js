@@ -6,12 +6,16 @@ import { faAngleDoubleUp, faAngleDoubleDown } from '@fortawesome/free-solid-svg-
 
 function HistoryBar(props) {
 
+    function buildDescription(move) {
+        const { num, col, row} = move;
+        return num ?
+            <label>Move #{num}<label className="secondary">row {row}, column {col}</label></label> :
+            <label>GAME START</label>;
+    }
     function renderMoves(moves) {
         return moves.map(move => {
-            const { num, col, row} = move;
-            const description = num ?
-                `Go to move #${num}: row ${row}, column ${col}` :
-                'Go to game start';
+            const description = buildDescription(move);
+            const { num } = move; 
             return (
                 <li className="history-move" key={num}>
                     <button onClick={() => props.jumpTo(num)}>{description}</button>
