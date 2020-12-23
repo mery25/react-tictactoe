@@ -1,6 +1,7 @@
 import React from "react"
 import GameContainer from "./GameContainer"
 import Header from "./Header"
+import Footer from "./Footer"
 import "../css/App.css"
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
         <div>
             <Header />
             <GameContainer />
+            <Footer />
         </div>
     );
 }
