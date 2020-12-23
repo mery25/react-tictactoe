@@ -12,19 +12,22 @@ function HistoryBar(props) {
             <label>Move #{num}<label className="secondary">row {row}, column {col}</label></label> :
             <label>GAME START</label>;
     }
+
     function renderMoves(moves) {
         return moves.map(move => {
             const description = buildDescription(move);
             const { num } = move; 
             return (
-                <li className="history-move" key={num}>
+                <li 
+                className={ stepNumber === num ? "history-move selected-move" : "history-move" } 
+                key={num}>
                     <button onClick={() => props.jumpTo(num)}>{description}</button>
                 </li>
             );
         });
     }
 
-    const { sortedMoves, isAscendingHistory, isHistoryBarOpen } = props.historyInfo;
+    const { sortedMoves, isAscendingHistory, isHistoryBarOpen, stepNumber } = props.historyInfo;
     const sidebarClass = isHistoryBarOpen ? 'history-bar open' : 'history-bar';
     const historyBarToggleIcon = isHistoryBarOpen ? faAngleDoubleUp : faAngleDoubleDown;
     const renderedMoves = renderMoves(sortedMoves);
