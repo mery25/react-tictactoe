@@ -14,6 +14,7 @@ function Board(props) {
                 key={i}
                 value={value}
                 isHighlighted={isHighlighted}
+                isEditableSquare={props.isEditableBoard}
                 onClick={() => props.onClick(i)}
             />
         );
