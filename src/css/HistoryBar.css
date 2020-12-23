@@ -10,6 +10,8 @@
     max-height: 0;
     background-color: whitesmoke;
     transition: max-height 0.5s ease-out;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
 }
 
 .history-bar.open {
@@ -38,6 +40,11 @@
 
 .history-bar-toggle:hover {
     color: #7C5A0B;
+}
+
+.history-bar.open .history-bar-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .history-bar-toggle .toggle-icon {
@@ -102,6 +109,9 @@
         max-height: max-content;
         justify-self: flex-end;
         transition: max-width 0.5s ease-out;
+        border-radius: 0;
+        border-top-right-radius: 7px;
+        border-bottom-right-radius: 7px;
     }
 
     .history-bar.open {
@@ -114,6 +124,11 @@
         left: -40px;
         height: 100%;
         width: 40px;
+    }
+
+    .history-bar.open .history-bar-toggle {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
     
     .history-bar-toggle .toggle-icon {
