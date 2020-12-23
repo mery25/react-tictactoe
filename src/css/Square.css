@@ -50,6 +50,10 @@
     font-size: 8vw;
 }
 
+.square:not(:disabled):empty {
+    cursor: pointer;
+}
+
 .square.highlighted {
     font-size: 10vw;
     transition: none;
