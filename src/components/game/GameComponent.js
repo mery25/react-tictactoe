@@ -1,8 +1,7 @@
-import '../css/Game.css';
+import './Game.css';
 import React from "react";
-import Board from "./Board";
-import SwitchOrderButton from "./SwitchOrderButton"
-import HistoryBar from './HistoryBar';
+import Board from "../board/Board";
+import HistoryBar from '../history_bar/HistoryBar';
 
 function GameComponent(props) {
 
