@@ -19,9 +19,11 @@ function GameContainer() {
     const [ xIsNext, setXIsNext ] = useState(true);
     const [ stepNumber, setStepNumber ] = useState(0);
     const [ isAscendingHistory, setIsAscendingHistory ] = useState(true);
-    const [ isHistoryBarOpen, setIsHistoryBarOpen] = useState(true);
+    const [ isHistoryBarOpen, setIsHistoryBarOpen ] = useState(true);
+    const [ isEditableBoard, setIsEditableBoard ] = useState(true);
 
     function handleClick(i) {
+
         const oldHistory = history.slice(0, stepNumber + 1);
         const current = oldHistory[oldHistory.length - 1];
         const squares = [...current.squares];
@@ -43,6 +45,8 @@ function GameContainer() {
     }
 
     function jumpTo(step) {
+        setIsEditableBoard(step === history.length - 1);
+        
         setStepNumber(step);
         setXIsNext((step % 2) === 0);
     }
@@ -124,8 +128,9 @@ function GameContainer() {
             status={status}
             toggleOrder={toggleOrder}
             onClick={handleClick}
+            isEditableBoard={isEditableBoard}
             toggleSidebar={handleToggleSideBar}
-            historyInfo={{sortedMoves, isAscendingHistory, isHistoryBarOpen}}
+            historyInfo={{sortedMoves, isAscendingHistory, isHistoryBarOpen, stepNumber}}
             jumpTo={jumpTo}
         />
     );

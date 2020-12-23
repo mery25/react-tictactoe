@@ -17,6 +17,7 @@ function GameComponent(props) {
                 <div className="game-board">
                     <Board
                         squares={props.squares}
+                        isEditableBoard={props.isEditableBoard}
                         onClick={props.onClick}
                     />
                 </div>

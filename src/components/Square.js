@@ -7,7 +7,7 @@ function Square(props) {
         <button 
             className={props.isHighlighted ? "square highlighted": "square"}
             onClick={props.onClick} 
-        >
+            disabled={!props.isEditableSquare}>
             { props.value }
         </button>
     );
