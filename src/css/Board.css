@@ -13,7 +13,7 @@
     width: 100%;
     height: 33.33%;
 }
-
+  
 .game-board .board-row:first-child button {
     border-top: none !important;
 }
