@@ -1,6 +1,5 @@
-import '../css/Game.css';
 import React, {useState} from "react";
-import { calculateWinner } from "../calculateWinner"
+import { calculateWinner } from "../../logic/calculateWinner"
 import GameComponent from "./GameComponent"
 
 function GameContainer() {

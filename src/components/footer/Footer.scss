@@ -1,0 +1,54 @@
+@import "../colors";
+
+footer {
+    width: 100%;
+    color: $font-color-footer;
+    background: $bg-color-footer;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+
+}
+
+a.sourcecode {
+    font-style: italic;
+    font-size: 13px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+
+    & ul {
+        list-style: none;
+        display: flex;
+
+        & li {
+            margin-right: 1rem;
+            font-size: 2rem;
+        }
+    }
+
+    & svg {
+        cursor: pointer;
+        color: $buttered-rum;
+    }
+}
+
+.copyright {
+    background-color: $bg-color-copyright;
+    color: $font-color-copyright;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 1rem;
+    padding-top: .4rem;
+}
