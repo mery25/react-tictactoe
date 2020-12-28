@@ -1,6 +1,8 @@
+@import "../../colors";
+
 .selected { 
-    color: black ;
+    color: $black ;
 }
 .unselected {
-    color: gray;
+    color: $dusty-grey;
 }

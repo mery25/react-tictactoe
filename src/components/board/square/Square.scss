@@ -1,25 +1,26 @@
+@import "../../mixins";
+
 @keyframes scaleAnimation {
     0% {
       font-size: 8vw;
-      background-color: white;
+      background-color: $bg-color;
     }
     25%{
-        background-color: #dbdbb8
+        background-color: $bg-color-transition
     }
     50% {
         font-size: 14vw;
-        background-color: #9c9c7c;
+        background-color: $bg-color-highlighted;
     }
     100% {
         font-size: 10vw;
-        background-color: #9c9c7c;
+        background-color: $bg-color-highlighted;
     }
 }
 
 .square {
     background: transparent;
-    border: 1px solid #999;
-    border: 0.35rem solid #999;
+    border: 0.35rem solid $bdr-color-grey;
     float: left;
     line-height: 100%;
     height: 100%;
@@ -27,36 +28,34 @@
     padding: 0;
     text-align: center;
     margin: 0;
-    font-size: 0vw;
-    font-family: "Luckiest Guy", cursive;
-    color: white;
+    @include primary-text(0vw);
     display: flex;
     align-items: center;
     justify-content: center;
-    text-shadow: 0 0.1em 20px rgba(0, 0, 0, 1), 0.05em -0.03em 0 rgba(0, 0, 0, 1),
-      0.05em 0.005em 0 rgba(0, 0, 0, 1), 0em 0.08em 0 rgba(0, 0, 0, 1),
-      0.05em 0.08em 0 rgba(0, 0, 0, 1), 0px -0.03em 0 rgba(0, 0, 0, 1),
-      -0.03em -0.03em 0 rgba(0, 0, 0, 1), -0.03em 0.08em 0 rgba(0, 0, 0, 1), -0.03em 0 0 rgba(0, 0, 0, 1);
     box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
     transition: font-size 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:focus {
+        outline: none;
+    }
+
+    &:not(:empty) {
+        font-size: 8vw;
+    }
+
+    &:not(:disabled):empty {
+        cursor: pointer;
+    }
+
+    &.highlighted {
+        font-size: 10vw;
+        transition: none;
+        animation: scaleAnimation 2s; 
+        background-color: $bg-color-highlighted;
+    }
   }
 
-.square:focus {
-    outline: none;
-}
 
-.square:not(:empty) {
-    font-size: 8vw;
-}
 
-.square:not(:disabled):empty {
-    cursor: pointer;
-}
 
-.square.highlighted {
-    font-size: 10vw;
-    transition: none;
-    animation: scaleAnimation 2s; 
-    background-color: #9c9c7c;
-}

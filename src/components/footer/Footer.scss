@@ -1,18 +1,14 @@
+@import "../colors";
+
 footer {
     width: 100%;
-    color: #A77B0E;
-    background: #FAE042;
+    color: $font-color-footer;
+    background: $bg-color-footer;
     margin-top: 2rem;
     display: flex;
     justify-content: stretch;
     flex-direction: column;
     padding-top: 1rem;
-}
-
-.links {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
 }
 
 .col {
@@ -26,25 +22,30 @@ a.sourcecode {
     font-size: 13px;
 }
 
-.links ul {
-    list-style: none;
+.links {
     display: flex;
-}
+    justify-content: space-around;
+    align-content: center;
 
-.links ul li {
-    margin-right: 1rem;
-    font-size: 2rem;
-}
+    & ul {
+        list-style: none;
+        display: flex;
 
-.links svg {
-    cursor: pointer;
-    color: #A77B0E;
+        & li {
+            margin-right: 1rem;
+            font-size: 2rem;
+        }
+    }
+
+    & svg {
+        cursor: pointer;
+        color: $buttered-rum;
+    }
 }
 
 .copyright {
-    background-color: #000;
-    color: #fff;
-    height: 30px;
+    background-color: $bg-color-copyright;
+    color: $font-color-copyright;
     width: 100%;
     text-align: center;
     vertical-align: middle;
