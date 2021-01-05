@@ -1,4 +1,5 @@
 @import "../colors";
+@import "../fonts";
 
 .history-bar {
     display: flex;
@@ -90,7 +91,8 @@
     margin: 0;
 
     & button {
-        font: 14px 'Roboto Slab', serif;
+        font-size: 14px;
+        font-family: $serif;
         margin: .5rem .25rem;
         border-radius: 0.4rem;
         background-color: $bg-color-history-move;
@@ -102,13 +104,14 @@
             font-weight: normal;
             padding: 0 .3rem;
             line-height: 1.5rem;
+            font-size: 16px;
         }
 
         & .secondary {
             font-style: italic;
             font-weight: lighter;
             padding-left: 1rem;
-            font-size: 13px
+            font-size: 14px
         }
 
         &:before {
@@ -191,7 +194,7 @@
 
     .history-container {
         padding: 1rem;
-        width: 266.73px;
+        width: 267px;
 
         & button {
             white-space: nowrap;
