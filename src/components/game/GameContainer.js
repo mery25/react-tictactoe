@@ -68,18 +68,6 @@ function GameContainer() {
         });
     }
 
-    function createStatus(winner) {
-        let status;
-        if (winner) {
-            status = 'Winner: ' + winner.value;
-        } else if (stepNumber === BOARD_SIZE) {
-            status = "This is a tie!"
-        } else {
-            status = 'Next player: ' + <span>(xIsNext ? 'X' : 'O')</span>;
-        }
-        return status;
-    }
-
     function getNextPlayer(winner) {
         if (winner || stepNumber === BOARD_SIZE) {
             return null;
@@ -109,7 +97,6 @@ function GameContainer() {
 
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
-    const status = createStatus(winner);
     const moves = extractMovesFrom(history);
 
     const sortedMoves = isAscendingHistory 
@@ -124,7 +111,7 @@ function GameContainer() {
         <GameComponent 
             squares={squares}
             nextPlayer={getNextPlayer(winner)}
-            status={status}
+            winner={winner ? winner.value : undefined}
             toggleOrder={toggleOrder}
             onClick={handleClick}
             isEditableBoard={isEditableBoard}
