@@ -27,7 +27,7 @@ function Footer() {
                             </a>
                         </li>
                         <li>
-                            <a href="mailto:maria.ta.89@gmail.com?Subject=Contact%20from%20TICTACTOE%20App">                
+                            <a href="mailto:maria.ta.89@gmail.com?Subject=Contact%20from%20TicTacToe%20App">                
                             <FontAwesomeIcon icon={ faEnvelope } className="link" />
                             </a>
                         </li>                  
