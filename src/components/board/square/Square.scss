@@ -2,18 +2,18 @@
 
 @keyframes scaleAnimation {
     0% {
-      font-size: 8vw;
+      font-size: 10vw;
       background-color: $bg-color;
     }
     25%{
         background-color: $bg-color-transition
     }
     50% {
-        font-size: 14vw;
+        font-size: 15vw;
         background-color: $bg-color-highlighted;
     }
     100% {
-        font-size: 10vw;
+        font-size: 12vw;
         background-color: $bg-color-highlighted;
     }
 }
@@ -41,7 +41,7 @@
     }
 
     &:not(:empty) {
-        font-size: 8vw;
+        font-size: 12vw;
     }
 
     &:not(:disabled):empty {
@@ -49,7 +49,7 @@
     }
 
     &.highlighted {
-        font-size: 10vw;
+        font-size: 12vw;
         transition: none;
         animation: scaleAnimation 2s; 
         background-color: $bg-color-highlighted;
