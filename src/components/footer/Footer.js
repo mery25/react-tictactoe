@@ -2,6 +2,7 @@ import React from "react"
 import "./Footer.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 function Footer() {
     return (
@@ -24,7 +25,12 @@ function Footer() {
                             <a href="https://github.com/mery25">                
                             <FontAwesomeIcon icon={ faGithub } className="link" />
                             </a>
-                        </li>                    
+                        </li>
+                        <li>
+                            <a href="mailto:maria.ta.89@gmail.com?Subject=Contact%20from%20TICTACTOE%20App">                
+                            <FontAwesomeIcon icon={ faEnvelope } className="link" />
+                            </a>
+                        </li>                  
                     </ul>
                 </div>
             </div>
