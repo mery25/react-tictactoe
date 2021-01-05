@@ -14,6 +14,9 @@ footer {
 .col {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
 
 }
 
@@ -24,8 +27,8 @@ a.sourcecode {
 
 .links {
     display: flex;
-    justify-content: space-around;
-    align-content: center;
+    align-content: flex-end;
+    flex-direction: column;
 
     & ul {
         list-style: none;
@@ -36,11 +39,16 @@ a.sourcecode {
             font-size: 2rem;
         }
     }
+}
 
-    & svg {
-        cursor: pointer;
-        color: $buttered-rum;
-    }
+.link {
+    color: $font-color-link;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link:hover, .link:focus {
+    color: $font-color-hvr-link;
 }
 
 .copyright {
@@ -50,5 +58,15 @@ a.sourcecode {
     text-align: center;
     vertical-align: middle;
     margin-top: 1rem;
+    padding-bottom: .4rem;
     padding-top: .4rem;
+}
+
+@media screen and (min-width: 600px) {
+    .links {
+        justify-content: space-around;
+        align-content: center;
+        flex-direction: row;
+    }
+
 }
