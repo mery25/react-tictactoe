@@ -7,7 +7,8 @@ $white: #fff;
 $whitesmoke: #f5f5f5;
 $tana: #dbdbb8;
 $gurkha: #9c9c7c;
-$dusty-grey: #999;
+$dove-gray: #736D6D;
+$alto: #cfcfcf; 
 $black: #000;
 
 
@@ -23,7 +24,7 @@ $text-shdw-color: rgba($black, 1);
 $font-color: $white;
 
 /* board square */
-$bdr-color-grey: $dusty-grey;
+$bdr-color-grey: $alto;
 $bg-color-highlighted: $gurkha;
 $bg-color-transition: $tana;
 $bg-color: $white;
@@ -35,7 +36,7 @@ $bg-color-history: $whitesmoke;
 $bg-color-history-toggle: $bright-sun;
 $font-color-history-toggle: $buttered-rum;
 $font-color-hvr-history-toggle: $rusty-nail;
-$bg-color-history-move: $dusty-grey;
+$bg-color-history-move: $alto;
 $font-color-history-move: $black;
 $bg-color-hvr-history-move: $black;
 $font-color-hvr-history-move: $white;
@@ -43,5 +44,7 @@ $font-color-hvr-history-move: $white;
 /* Footer */
 $bg-color-copyright: $black;
 $font-color-copyright: $white;
-$bg-color-footer: $bright-sun;
-$font-color-footer: $buttered-rum;
+$bg-color-footer: $whitesmoke;
+$font-color-footer: $black;
+$font-color-link: $dove-gray;
+$font-color-hvr-link: $black;
