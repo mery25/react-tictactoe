@@ -43,8 +43,9 @@
 @media screen and (min-width: 600px) {
 
     .game-board {
-      height: 50vw;
-      margin: auto;
-      flex-grow: 2;
+        height: 60vw; 
+        margin: auto;
+        flex-grow: 2;
+        max-width: 60vw;
     }
-  }
+}

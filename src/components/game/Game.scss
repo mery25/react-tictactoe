@@ -10,7 +10,11 @@
   padding: 1rem;
 
   & h2 {
-    font-size: 1em;
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: center;
+    margin: auto;
+    width: fit-content;
   }
 
   & span {
@@ -19,6 +23,13 @@
     text-align: center;
     vertical-align: middle;
   }
+
+  .status {
+    margin: auto;
+    width: fit-content;
+    text-transform: uppercase;
+  }
+
 }
 
 .game-panel {
@@ -29,11 +40,14 @@
 @media screen and (min-width: 600px) {
 
   .game-status {
-    min-height: 96px;
-    padding: 1.5rem;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
 
     & h2 {
-      font-size: 1.2em;
+      font-weight: bold;
+      font-family: $serif;
+      font-size: 1.5em;
     }
   }
 

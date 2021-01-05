@@ -5,12 +5,19 @@ import HistoryBar from '../history_bar/HistoryBar';
 
 function GameComponent(props) {
 
+    let gameStatus;
+    if (props.nextPlayer) {
+        gameStatus = <h2>Next player is  <span>{props.nextPlayer}</span></h2>
+    } else if (props.winner) {
+        gameStatus = <h2 className="status">The winner is <span>{props.winner}</span></h2>
+    } else {
+        gameStatus = <h2 className="status">The result is a tie :(</h2>
+    }
+
     return (
          <div className="game">
             <div className="game-status">
-            { props.nextPlayer && 
-                <h2>Next player is  <span>{props.nextPlayer}</span></h2>
-            }
+            { gameStatus }
             </div>
             <div className="game-panel">
                 <div className="game-board">
