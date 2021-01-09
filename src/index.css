@@ -28,11 +28,9 @@ body #root > div  {
 body #root > div {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
