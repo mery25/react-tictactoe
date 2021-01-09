@@ -1,5 +1,5 @@
 import React from "react"
-import GameContainer from "./game/GameContainer"
+import AppRouter from "./AppRouter"
 import Header from "./header/Header"
 import Footer from "./footer/Footer"
 import NavBar from "./navbar/NavBar"
@@ -11,7 +11,7 @@ function App() {
         <div>
             <NavBar/>
             <Header />
-            <GameContainer />
+            <AppRouter />
             <Footer />
         </div>
     );
