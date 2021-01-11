@@ -29,8 +29,3 @@ body #root > div {
   display: flex;
   flex-flow: column nowrap;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
