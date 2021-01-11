@@ -11,7 +11,9 @@ function App() {
         <div>
             <NavBar/>
             <Header />
-            <AppRouter />
+            <main>
+                <AppRouter />
+            </main>
             <Footer />
         </div>
     );
