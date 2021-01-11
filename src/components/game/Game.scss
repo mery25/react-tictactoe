@@ -2,12 +2,13 @@
 
 .game {
   display: block;
-  padding: 0 2rem 1rem 2rem;
+  padding: 0 2rem 2rem 2rem;
+  margin-top: -27vw;
 }
 
 .game-status {
   min-height: 81px;
-  padding: 1rem;
+  padding: .5rem;
 
   & h2 {
     font-size: 1.5em;
@@ -38,6 +39,10 @@
 }
 
 @media screen and (min-width: 600px) {
+
+  .game {
+    margin-top: -13vw;
+  }
 
   .game-status {
     min-height: 100px;
