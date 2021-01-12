@@ -4,9 +4,7 @@
 .navbar {
     width: 100%; 
     z-index: 2;
-    background: rgb(242,221,95);
-    background: linear-gradient(180deg, rgba(242,221,95,1) 0%, rgba(242,221,95,1) 80%, rgba(250,224,66,1) 100%);
-    background: rgb(168,150,44,1);
+    background: rgb(168,150,44);
     background: linear-gradient(180deg, rgba(168,150,44,1) 0%, rgba(250,224,66,1) 90%, rgba(250,224,66,1) 100%);
 
     &:focus {
