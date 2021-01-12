@@ -15,7 +15,7 @@ function GameComponent(props) {
     }
 
     return (
-         <div className="game">
+         <section className="game">
             <div className="game-status">
             { gameStatus }
             </div>
@@ -34,7 +34,7 @@ function GameComponent(props) {
                     jumpTo={props.jumpTo}
                 />
             </div>
-        </div> 
+        </section> 
     );
 }
 
