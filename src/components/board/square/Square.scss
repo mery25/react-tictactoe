@@ -1,22 +1,6 @@
 @import "../../mixins";
 
-@keyframes scaleAnimation {
-    0% {
-      font-size: 10vw;
-      background-color: $bg-color;
-    }
-    25%{
-        background-color: $bg-color-transition
-    }
-    50% {
-        font-size: 15vw;
-        background-color: $bg-color-highlighted;
-    }
-    100% {
-        font-size: 12vw;
-        background-color: $bg-color-highlighted;
-    }
-}
+@include scale-animation-keyframe10();
 
 .square {
     background: transparent;
@@ -51,11 +35,26 @@
     &.highlighted {
         font-size: 12vw;
         transition: none;
-        animation: scaleAnimation 2s; 
+        animation: scale-board-square 2s; 
         background-color: $bg-color-highlighted;
     }
-  }
+}
 
+@media screen and (min-width: 600px) {
+    
+    @include scale-animation-keyframe6();
 
+    .square {
+        &:not(:empty) {
+            font-size: 8vw;
+        }
+    
+        &.highlighted {
+            font-size: 8vw;
+            animation: scale-board-square 2s; 
+        }
+    }
 
+}
 
+  
