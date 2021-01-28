@@ -4,10 +4,15 @@ This is a React implementation of Tic Tac Toe game.
 
 ## Project Screen Shot(s)
 
+### Web
+![landing web](./docs/images/tictactoe-landing-web.png) ![game web](./docs/images/tictactoe-game-web.png)
+
+### Mobile
+![landing mobile](./docs/images/tictactoe-landing-mobile.png) ![game mobile](./docs/images/tictactoe-game-mobile.png)
 
 ## Demo 
 
-
+[Go to Demo!](https://mery25.github.io/tictactoe/)
 
 ## Installation and Setup Instructions
 
@@ -22,7 +27,7 @@ npm install
 
 npm test
 
-### To Start Server:
+### To Start App:
 
 npm start
 
