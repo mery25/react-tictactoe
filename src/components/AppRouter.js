@@ -6,8 +6,8 @@ import Home from "./home/Home"
 const AppRouter = () => {
     return (
         <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/game" component={GameContainer} />
+            <Route exact path="/tictactoe" component={Home} />
+            <Route path="/tictactoe/game" component={GameContainer} />
         </Switch>
     );
 };
