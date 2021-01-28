@@ -5,7 +5,8 @@ This is a React implementation of Tic Tac Toe game.
 ## Project Screen Shot(s)
 
 ### Web
-![landing web](./docs/images/tictactoe-landing-web.png) ![game web](./docs/images/tictactoe-game-web.png)
+
+![landing web](./docs/images/tictactoe-landing-web.png) ![game web](./docs/images/tictactoe-game-web.png =100x20)
 
 ### Mobile
 ![landing mobile](./docs/images/tictactoe-landing-mobile.png) ![game mobile](./docs/images/tictactoe-game-mobile.png)
