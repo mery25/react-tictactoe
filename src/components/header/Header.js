@@ -1,11 +1,11 @@
 import React from "react"
 import "./Header.scss"
 import { useLocation } from 'react-router-dom'
-const HOME_PATH = '/tictactoe';
+const HOME_PATH_REGEX = /\/tictactoe\/?$/
 
 function Header() {
     const location = useLocation();
-    const isHomeView = location.pathname === HOME_PATH;
+    const isHomeView = HOME_PATH_REGEX.test(location.pathname)
 
     return (
         <header className={isHomeView ? "expanded": null}>
