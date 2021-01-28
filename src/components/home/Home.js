@@ -6,7 +6,7 @@ function Home() {
 
     return (
         <section id="home">
-            <Link to={useLocation().pathname + "/game"}>Play</Link>
+            <Link to="/tictactoe/game">Play</Link>
             <article>
                 <h3>Rules</h3>
                 <ul>
