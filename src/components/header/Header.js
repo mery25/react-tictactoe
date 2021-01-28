@@ -1,7 +1,7 @@
 import React from "react"
 import "./Header.scss"
 import { useLocation } from 'react-router-dom'
-const HOME_PATH = '/';
+const HOME_PATH = '/tictactoe';
 
 function Header() {
     const location = useLocation();
