@@ -1,12 +1,12 @@
 import React from "react"
 import "./Home.scss"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Home() {
 
     return (
         <section id="home">
-            <Link to="/game">Play</Link>
+            <Link to="/tictactoe/game">Play</Link>
             <article>
                 <h3>Rules</h3>
                 <ul>

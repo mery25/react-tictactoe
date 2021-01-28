@@ -13,9 +13,9 @@ function NavBar() {
         <div className="navbar">
             <ToggleButton active={!isNavBarCollapsed} toggle={toggleNavbar}/>
             <nav className={ isNavBarCollapsed ? "collapsed" : null }>
-                <NavLink className="navbar-link" exact to="/">Home</NavLink>
-                <NavLink className="navbar-link" to="/game">Game</NavLink>
-                <NavLink className="navbar-link" to="/ranking">Ranking</NavLink>
+                <NavLink className="navbar-link" exact to="/tictactoe">Home</NavLink>
+                <NavLink className="navbar-link" to="/tictactoe/game">Game</NavLink>
+                <NavLink className="navbar-link" to="/tictactoe/ranking">Ranking</NavLink>
             </nav>
         </div>
     )
