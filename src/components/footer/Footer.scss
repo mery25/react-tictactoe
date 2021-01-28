@@ -1,0 +1,73 @@
+@import "../colors";
+
+footer {
+    width: 100%;
+    color: $font-color-footer;
+    background: $bg-color-footer;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
+    padding-top: 1rem;
+    margin-top: auto;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+
+}
+
+a.sourcecode {
+    font-style: italic;
+    font-size: 16px;
+}
+
+.links {
+    display: flex;
+    align-content: flex-end;
+    flex-direction: column;
+
+    & ul {
+        list-style: none;
+        display: flex;
+
+        & li {
+            margin-right: 1rem;
+            font-size: 2rem;
+        }
+    }
+}
+
+.link {
+    color: $font-color-link;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link:hover, .link:focus {
+    color: $font-color-hvr-link;
+}
+
+.copyright {
+    background-color: $bg-color-copyright;
+    color: $font-color-copyright;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 1rem;
+    padding-bottom: .4rem;
+    padding-top: .4rem;
+}
+
+@media screen and (min-width: 600px) {
+    .links {
+        justify-content: space-around;
+        align-content: center;
+        flex-direction: row;
+    }
+
+}
