@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap");
+
+header + main {
+  margin-top: -27vw;
+}
+
+header.expanded + main {
+  margin-top: 0vw;
+}
+
+@media screen and (min-width: 600px) {
+  header + main {
+    margin-top: -2vw;
+  }
+}

@@ -1,0 +1,63 @@
+@import "../mixins";
+
+.game {
+  display: block;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.game-status {
+  min-height: 81px;
+  padding: .5rem;
+
+  & h2 {
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+  }
+
+  & span {
+    margin-left: 1.3rem;
+    @include primary-text(2.5rem);
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .status {
+    margin: auto;
+    width: fit-content;
+    text-transform: uppercase;
+  }
+
+}
+
+.game-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 600px) {
+
+  .game {
+    margin-top: -11vw;
+  }
+
+  .game-status {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+
+    & h2 {
+      font-weight: bold;
+      font-family: $serif;
+      font-size: 1.5em;
+    }
+  }
+
+  .game-panel {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+}
