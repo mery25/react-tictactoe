@@ -15,6 +15,7 @@
     transition: max-height 0.5s ease-out;
     border-bottom-right-radius: 7px;
     border-bottom-left-radius: 7px;
+    z-index: 1;
 
     &.open {
         max-height: max-content;
