@@ -11,8 +11,8 @@ This is a React implementation of Tic Tac Toe game.
 
 ### Mobile
 
-<img src="./docs/images/tictactoe-landing-mobile.png" width="43.7%">
-<img src="./docs/images/tictactoe-game-mobile.png" width="41%">
+<img src="./docs/images/tictactoe-landing-mobile.png" width="37.3%">
+<img src="./docs/images/tictactoe-game-mobile.png" width="35%">
 
 ## Demo 
 
