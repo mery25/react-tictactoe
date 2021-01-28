@@ -1,0 +1,80 @@
+@import "../mixins";
+
+header {
+    position: relative;
+    width: 100%;
+    color: $font-color-header;
+    background: $bg-color-header;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    transform: translateY(-39vw);
+    -webkit-transition: transform .5s ease;
+	-moz-transition: transform .5s ease;
+    transition: transform .5s ease;
+    z-index: 100;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        border: none;
+    }
+
+    & h1 {
+        @include primary-text(16vw);
+        text-align: center;
+        z-index: 1000;
+
+        & span {
+            transition: opacity .3s ease-in-out;
+            opacity: 0;
+            font-size: 14vw;
+            display: block;
+            text-align: center;
+        }
+
+    }
+
+    &.expanded {
+        transform: translateY(0);
+
+        & h1 span {
+                opacity: 1;
+        }
+    }
+
+    &:after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 40px;
+        bottom: -20px;
+        background-color: $bg-color-header;
+        border-radius: 0 0 100% 100%;
+        -webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 10px;
+        -moz-box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+        box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+
+        -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 9px 20px -14px;
+        -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 9px 20px -14px;
+        box-shadow: rgba(0, 0, 0, 0.8) 0 9px 20px -14px;
+        z-index: 10;
+    }
+    
+}
+
+@media screen and (min-width: 600px) {
+    header {
+        transform: translateY(-14.5vw);
+    }
+    header h1 {
+        font-size: 7vw;
+
+        & span {
+            font-size: 5vw;
+        }
+    }
+    
+}
